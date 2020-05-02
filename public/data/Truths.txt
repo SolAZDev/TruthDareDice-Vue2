@@ -138,3 +138,7 @@ Go around the room and say one positive and one negative thing about each person
 If you could go on a romantic date with anyone in this room, who would you pick?
 Rate @ on a scale of 1 to 10, with 10 being the hottest.
 Rate everyone on a scale of 1 to 10, with 10 being the hottest.
+Who do you find most attractive on the group?
+Who do you find interesting in the group?
+Who would you like to get to know better in the group?
+If you were to invite someone to the game, who would've been?

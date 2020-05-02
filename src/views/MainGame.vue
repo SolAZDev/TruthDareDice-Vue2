@@ -2,10 +2,10 @@
     v-container(fill-height fluid)
         v-row(v-if="ready").align-start.grow-1
             v-col(cols="12")    
-                v-card.text-center
+                v-card(raised).text-center
                     v-row.text-center
                         v-col(cols="12")
-                            //- .headline {{playerName}}
+                            b.headline {{playerName}}
                         v-col(cols="12")
                             .headline(v-html="todRequest") {{todRequest}}
             //- v-spacer
@@ -15,7 +15,7 @@
                     v-col.text-center
                         v-btn(raised large color="primary"  @click="getTruth()") Truth
                     v-col.text-center
-                        v-btn(raised large color="primary" :disabled="difficulty>0" @click="rollDice()") Dice
+                        v-btn(raised large color="primary" :disabled="difficulty<1" @click="rollDice()") Dice
                     v-col.text-center
                         v-btn(raised large color="primary"  @click="getDare()") Dare
             v-col(cols="12")
@@ -93,7 +93,7 @@ export default Vue.extend({
         this.activePlayer
       );
       const player = this.players[id];
-      console.log(id + ":" + player);
+      // console.log(id + ":" + player);
       return player;
     },
     parseReplacements(str: string) {
@@ -120,7 +120,7 @@ export default Vue.extend({
       this.nextTurn();
     },
     nextTurn() {
-      //ChangeDiff
+      // this.setDifficulty();
       this.canContinue = false;
       this.activePlayer++;
       if (this.activePlayer > this.playerCount - 1) {
@@ -133,13 +133,16 @@ export default Vue.extend({
       this.activePlayerData = this.$store.getters.getPlayer(this.activePlayer);
       this.todRequest = "Truth or Dare?";
       console.log(
-        "Turn " + this.activeTurn + "Player: " + this.activePlayerData
+        "Turn " + this.activeTurn + " - Player: " + this.activePlayerData.name
       );
-
+      this.setDifficulty();
       this.ready = true;
     },
     endGame() {
       console.log("GAMEOVER");
+      if (this.$store.getters.getProgressive) {
+        this.$store.dispatch("setDifficulty", 3);
+      }
       this.$router.push('/Results');
     },
     setDifficulty() {
@@ -147,15 +150,16 @@ export default Vue.extend({
         return;
       }
       let newDiff = this.$store.getters.getDifficulty;
-      if (this.gameProgress < 20) {
-        newDiff = 0;
+      if (this.gameProgress < 100) {
+        newDiff = 2;
       }
       if (this.gameProgress < 50) {
         newDiff = 1;
       }
-      if (this.gameProgress < 100) {
-        newDiff = 2;
+      if (this.gameProgress < 20) {
+        newDiff = 0;
       }
+      console.log("Progress is at " + this.gameProgress + "%, so the new difficutly is " + newDiff);
       this.$store.dispatch("setDifficulty", newDiff);
     },
   },

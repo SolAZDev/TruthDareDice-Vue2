@@ -47,24 +47,24 @@ export default new Vuex.Store({
     },
     getDare: (state) => (level: number) => {
       let dare = "";
+      let dareArray = [] as Array<string>;
       switch (level) {
         case 0: //'safe'--at least for work
-          dare =
-            state.data.daresSafe[
-              Utils.randomNumber(state.data.daresSafe.length)
-            ];
+          dareArray = state.data.daresSafe;
           break;
         case 1: //"Sexy"
-          dare =
-            state.data.daresSexy[
-              Utils.randomNumber(state.data.daresSexy.length)
-            ];
+          dareArray = state.data.daresSexy;
           break;
         case 2: //Hot
-          dare =
-            state.data.daresHot[Utils.randomNumber(state.data.daresHot.length)];
+        case 3:
+          dareArray = state.data.daresHot;
           break;
       }
+      const id = Utils.randomNumber(dareArray.length);
+      console.log("Requesting Dare at Level: " + level + "ID: " + id);
+      dare = dareArray[id];
+      console.log(dare);
+
       return dare;
     },
     getDiceArea: (state) => {
@@ -86,7 +86,7 @@ export default new Vuex.Store({
     },
     setDifficulty(state, difficulty: number) {
       state.difficulty = difficulty;
-      if (difficulty >= 4) {
+      if (difficulty >= 3) {
         state.progressive = true;
       }
     },

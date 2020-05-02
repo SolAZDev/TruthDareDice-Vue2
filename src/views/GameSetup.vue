@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 <template lang="pug">
     div
       v-container
@@ -16,7 +16,9 @@
               v-expand-transition
                 div(v-show="confPlayers")
                   v-card-text Add, Edit or Remove Players
-                  v-simple-table
+                  //- v-text-field(label="Name" v-model="players" autofocus)
+                  //- This is the new way but it's annoying at the moment. This will be renabled later
+                  v-simple-table 
                     tbody
                       tr(v-for="player in players" :key="player.id")
                         td.flex-grow-1
@@ -63,15 +65,17 @@
 
 </template>
 <script lang="ts">
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Vue from "vue";
 import { Player, GameSetup } from "../types/types";
+import { mapState } from 'vuex';
 export default Vue.extend({
   name: "GameSetup",
   data() {
     return {
-      players: [] as Array<Player>,
-      difficulty: 0,
-      turns: 0,
+      // players: [] as Array<Player>,
+      // difficulty: 0,
+      // turns: 0,
       confPlayers: true,
       confGame: false,
       difficultyText: [
@@ -81,13 +85,15 @@ export default Vue.extend({
         "Progressive (NSFW)",
       ],
     };
+  }, created() {
+    // this.players = this.$store.getters.getPlayers
   },
   computed: {
     validNames(): boolean {
       let valid = false;
       if (this.players.length > 1) {
         valid = true;
-        this.players.forEach((p) => {
+        this.players.forEach((p: Player) => {
           if (this.isEmptyOrWhiteSpace(p.name)) {
             valid = false;
           }
@@ -95,6 +101,11 @@ export default Vue.extend({
       }
       return valid;
     },
+    ...mapState({
+      players: (state: any) => state.players,
+      difficulty: (state: any) => state.difficulty,
+      turns: (state: any) => state.maxTurns
+    }),
   },
   methods: {
     isEmptyOrWhiteSpace(input: string) {
@@ -105,7 +116,7 @@ export default Vue.extend({
     },
     removePlayer(player: number) {
       this.players.splice(
-        this.players.indexOf(this.players.filter((p) => p.id == player)[0]),
+        this.players.indexOf(this.players.filter((p: Player) => p.id == player)[0]),
         1
       );
     },

@@ -6,5 +6,5 @@ module.exports = {
   pwa: {
     name: "TruthDareDice",
   },
-  publicPath: "/TruthDareDice/docs",
+  publicPath: "/TruthDareDice/",
 };

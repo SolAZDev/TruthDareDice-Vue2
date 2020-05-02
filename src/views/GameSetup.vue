@@ -72,7 +72,7 @@ export default Vue.extend({
       players: [] as Array<Player>,
       difficulty: 0,
       turns: 0,
-      confPlayers: false,
+      confPlayers: true,
       confGame: false,
       difficultyText: [
         "Normal / Safe",

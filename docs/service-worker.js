@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.c39dc2d683437b13094d8c5e1115cd1d.js"
+  "/TruthDareDice/docs/precache-manifest.b01750915964fe8f781107a264282862.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "truthdaredice"});

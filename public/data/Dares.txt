@@ -37,4 +37,4 @@
 # say in my pants at the end of each sentance you speak. Fail to do this and the group selects a dare for you.
 #, @ will smack your face. @, not too hard.
 # drink a glass of (whatever bevarage) without hands
-# confess something to the the group or to @
+# confess something to the the group or to @`

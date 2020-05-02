@@ -1,11 +1,10 @@
 module.exports = {
-  "transpileDependencies": [
-    "vuetify"
-  ],
+  transpileDependencies: ["vuetify"],
 
-  outputDir: 'docs',
+  outputDir: "docs",
 
   pwa: {
-    name: 'TruthDareDice'
-  }
-}
+    name: "TruthDareDice",
+  },
+  publicPath: "/TruthDareDice/docs",
+};

@@ -1,23 +1,22 @@
 <template lang="pug">
-    v-container
-        v-row(v-if="ready")
+    v-container(fill-height fluid)
+        v-row(v-if="ready").align-start.grow-1
             v-col(cols="12")    
                 v-card.text-center
                     v-row.text-center
                         v-col(cols="12")
-                            .headline {{playerName}}
+                            //- .headline {{playerName}}
                         v-col(cols="12")
                             .headline(v-html="todRequest") {{todRequest}}
+            //- v-spacer
+        v-row.justify-center
             v-col(cols="12")
-                v-row
-                    v-col(cols="2")
-                    v-col(cols="2").text-center
+                v-row.justify-center
+                    v-col.text-center
                         v-btn(raised large color="primary"  @click="getTruth()") Truth
-                    v-col(cols="1")
-                    v-col(cols="2").text-center
+                    v-col.text-center
                         v-btn(raised large color="primary" :disabled="difficulty>0" @click="rollDice()") Dice
-                    v-col(cols="1")
-                    v-col(cols="2").text-center
+                    v-col.text-center
                         v-btn(raised large color="primary"  @click="getDare()") Dare
             v-col(cols="12")
                 v-row
@@ -28,12 +27,7 @@
                     v-col(cols="2").text-center
                         v-btn(raised large color="primary" :disabled="!canContinue" @click="accept()") Accept
                     v-col(cols="3")
-        v-footer
-
-
-
-
-
+        v-footer.full-width.align-end
 </template>
 <script lang="ts">
 import Vue from "vue";
@@ -112,8 +106,8 @@ export default Vue.extend({
         .replace(
           new RegExp("%", "g"),
           "<b>" +
-            Math.round(Math.random() * (this.difficulty / 4) * 10) +
-            "</b>"
+          Math.round(Math.random() * (this.difficulty / 4) * 10) +
+          "</b>"
         );
     },
     accept() {
@@ -146,6 +140,7 @@ export default Vue.extend({
     },
     endGame() {
       console.log("GAMEOVER");
+      this.$router.push('/Results');
     },
     setDifficulty() {
       if (!this.$store.getters.getProgressive) {

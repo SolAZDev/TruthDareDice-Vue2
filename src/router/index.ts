@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import GameSetup from "../views/GameSetup.vue";
 import MainGame from "../views/MainGame.vue";
-
+import Results from "../views/Results.vue";
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
@@ -15,6 +15,11 @@ const routes: Array<RouteConfig> = [
     path: "/Game",
     name: "Truth or Dare or Dice",
     component: MainGame,
+  },
+  {
+    path: "/Results",
+    name: "Game Results",
+    component: Results,
   },
   {
     path: "/about",

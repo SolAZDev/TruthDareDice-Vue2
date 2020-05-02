@@ -96,6 +96,11 @@ export default new Vuex.Store({
     setData(state, data: TruthOrDareData) {
       state.data = data;
     },
+    resetScores(state) {
+      state.players.forEach((player) => {
+        player.score = 0;
+      });
+    },
   },
 
   actions: {
@@ -113,6 +118,9 @@ export default new Vuex.Store({
     },
     setGameData(context, data: TruthOrDareData) {
       context.commit("setData", data);
+    },
+    resetScores(context) {
+      context.commit("resetScores");
     },
   },
   modules: {},

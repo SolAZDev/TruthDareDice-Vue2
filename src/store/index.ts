@@ -24,7 +24,7 @@ export default new Vuex.Store({
     },
     getRandomPlayer: (state) => {
       return state.players.filter(
-        (p) => p.id == Math.round(Math.random() * state.players.length)
+        (p) => p.id == Utils.randomNumber(state.players.length)
       )[0];
     },
     getPlayers: (state) => {
@@ -40,14 +40,7 @@ export default new Vuex.Store({
       return state.progressive;
     },
     getRandom: (state) => (max: number) => {
-      return Math.round(Math.random() * max);
-    },
-    getTruth: (state, getters) => {
-      const id = Utils.randomNumber(state.data.truths.length);
-      console.log(id);
-      const truth =
-        state.data.truths[getters.getRandom(state.data.truths.length)];
-      return truth;
+      return Utils.randomNumber(max);
     },
     getTruthArray: (state) => {
       return state.data.truths;
@@ -58,23 +51,27 @@ export default new Vuex.Store({
         case 0: //'safe'--at least for work
           dare =
             state.data.daresSafe[
-              Math.round(Math.random() * state.data.daresSafe.length)
+              Utils.randomNumber(state.data.daresSafe.length)
             ];
           break;
         case 1: //"Sexy"
           dare =
             state.data.daresSexy[
-              Math.round(Math.random() * state.data.daresSexy.length)
+              Utils.randomNumber(state.data.daresSexy.length)
             ];
           break;
         case 2: //Hot
           dare =
-            state.data.daresHot[
-              Math.round(Math.random() * state.data.daresHot.length)
-            ];
+            state.data.daresHot[Utils.randomNumber(state.data.daresHot.length)];
           break;
       }
       return dare;
+    },
+    getDiceArea: (state) => {
+      return state.data.dicePlace;
+    },
+    getDiceAct: (state) => {
+      return state.data.diceAction;
     },
   },
   mutations: {

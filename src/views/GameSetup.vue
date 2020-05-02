@@ -54,7 +54,7 @@
                       .headline Truns
                       .subtitle-2 {{turns}}
                     v-col(xs="9" sm="10")
-                      v-slider(v-model="turns" min="5" max="100")
+                      v-slider(v-model="turns" min="5" max="100" step="5")
           v-col(align-center justify-center)
             v-row
               v-col(cols="5")
@@ -73,9 +73,9 @@ export default Vue.extend({
   name: "GameSetup",
   data() {
     return {
-      // players: [] as Array<Player>,
-      // difficulty: 0,
-      // turns: 0,
+      players: [] as Array<Player>,
+      difficulty: 0,
+      turns: 0,
       confPlayers: true,
       confGame: false,
       difficultyText: [
@@ -86,7 +86,9 @@ export default Vue.extend({
       ],
     };
   }, created() {
-    // this.players = this.$store.getters.getPlayers
+    this.players = this.$store.getters.getPlayers;
+    this.difficulty = this.$store.getters.getDifficulty;
+    this.turns = this.$store.getters.getTurns;
   },
   computed: {
     validNames(): boolean {
@@ -101,11 +103,12 @@ export default Vue.extend({
       }
       return valid;
     },
-    ...mapState({
-      players: (state: any) => state.players,
-      difficulty: (state: any) => state.difficulty,
-      turns: (state: any) => state.maxTurns
-    }),
+    // Didn't work, look into it later.
+    // ...mapState({
+    //   players: (state: any) => state.players,
+    //   difficulty: (state: any) => state.difficulty,
+    //   turns: (state: any) => state.maxTurns
+    // }),
   },
   methods: {
     isEmptyOrWhiteSpace(input: string) {

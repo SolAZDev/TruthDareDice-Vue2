@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b7064d79d6218f63d8a1",
-    "url": "/TruthDareDice/css/app.ccd4e192.css"
+    "revision": "499646894d3e9dcf5251",
+    "url": "/TruthDareDice/css/app.9ce95629.css"
   },
   {
-    "revision": "c81fb1924a94a9189448",
+    "revision": "343047bdcc0691695c3d",
     "url": "/TruthDareDice/css/chunk-vendors.0c5f5ead.css"
   },
   {
@@ -36,20 +36,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/TruthDareDice/img/logo.63a7d78d.svg"
   },
   {
-    "revision": "994f75839513836f675c0e0bcb93a3cd",
+    "revision": "e82356d142cc9158d169b1967b8212d2",
     "url": "/TruthDareDice/index.html"
   },
   {
-    "revision": "bade127e0b483cdda955",
-    "url": "/TruthDareDice/js/about.9c212104.js"
+    "revision": "a328efb1c2968e7e2155",
+    "url": "/TruthDareDice/js/about.8444b3b4.js"
   },
   {
-    "revision": "b7064d79d6218f63d8a1",
-    "url": "/TruthDareDice/js/app.02fc8cc9.js"
+    "revision": "499646894d3e9dcf5251",
+    "url": "/TruthDareDice/js/app.d912867a.js"
   },
   {
-    "revision": "c81fb1924a94a9189448",
-    "url": "/TruthDareDice/js/chunk-vendors.db07ef55.js"
+    "revision": "343047bdcc0691695c3d",
+    "url": "/TruthDareDice/js/chunk-vendors.d7470627.js"
   },
   {
     "revision": "3b25d3b58f3028738c5d0cd35c92801e",

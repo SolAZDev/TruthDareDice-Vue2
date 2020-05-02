@@ -61,7 +61,7 @@ export default new Vuex.Store({
           break;
       }
       const id = Utils.randomNumber(dareArray.length);
-      console.log("Requesting Dare at Level: " + level + "ID: " + d);
+      console.log("Requesting Dare at Level: " + level + "ID: " + id);
       dare = dareArray[id];
       console.log(dare);
 

@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "499646894d3e9dcf5251",
-    "url": "/TruthDareDice/css/app.9ce95629.css"
+    "revision": "09031f84079ca13726b2",
+    "url": "/TruthDareDice/css/app.ee89d608.css"
   },
   {
-    "revision": "343047bdcc0691695c3d",
-    "url": "/TruthDareDice/css/chunk-vendors.0c5f5ead.css"
+    "revision": "c0984126b213fdd8e186",
+    "url": "/TruthDareDice/css/chunk-vendors.dd86c8de.css"
   },
   {
     "revision": "eda057be8d7ff9e8d3a37581d36288dc",
@@ -36,7 +36,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/TruthDareDice/img/logo.63a7d78d.svg"
   },
   {
-    "revision": "e82356d142cc9158d169b1967b8212d2",
+    "revision": "e04facc7ff05a14f4337d68c9c6e2ddd",
     "url": "/TruthDareDice/index.html"
   },
   {
@@ -44,11 +44,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/TruthDareDice/js/about.8444b3b4.js"
   },
   {
-    "revision": "499646894d3e9dcf5251",
-    "url": "/TruthDareDice/js/app.d912867a.js"
+    "revision": "09031f84079ca13726b2",
+    "url": "/TruthDareDice/js/app.853018cd.js"
   },
   {
-    "revision": "343047bdcc0691695c3d",
+    "revision": "c0984126b213fdd8e186",
     "url": "/TruthDareDice/js/chunk-vendors.d7470627.js"
   },
   {

@@ -4,7 +4,7 @@
       v-container
         v-row.flex-column.ma-0.fill-height
           v-col
-            v-card
+            v-card(raised)
               v-row.fill-height
                 v-col.flex-grow-1
                   v-card-title(grow)
@@ -18,21 +18,23 @@
                   v-card-text Add, Edit or Remove Players
                   //- v-text-field(label="Name" v-model="players" autofocus)
                   //- This is the new way but it's annoying at the moment. This will be renabled later
-                  v-simple-table 
-                    tbody
-                      tr(v-for="player in players" :key="player.id")
-                        td.flex-grow-1
+                  div(style="padding: 5px;")
+                    div(style="padding: 5px;")
+                      v-row(v-for="player in players" :key="player.id")
+                        v-col.flex-grow-1
                           v-text-field(label="Name" v-model="player.name" autofocus)
                           //- input(type="text" label="Name" v-model="player.value")
-                        td.flex-grow-0
+                        v-col.flex-grow-0.d-flex.align-center
                           v-btn.mx-2.text-right(fab dark small color="gray" @click="removePlayer(player.id)")
                             v-icon mdi-minus
-                    v-btn.mx-2.text-right(fab dark color="gray" @click="addPlayer()")
+                    v-divider(style="margin-bottom:5px")
+                    .d-flex.justify-center
+                      v-btn.mx-2.text-right(fab dark color="gray" @click="addPlayer()")
                         v-icon mdi-plus   
             
-          //- v-divider
+          v-divider
           v-col
-            v-card 
+            v-card(raised)
               v-row.fill-height
                 v-col.flex-grow-accent-1
                   v-card-title.headline Game Settings
@@ -43,24 +45,23 @@
               v-expand-transition
                 div#config(v-show="confGame")
                   v-row
-                    v-col.text-center(xs="3" sm="2")
+                    v-col.text-center.flex-grow-0
                       .title Difficutly
                       .subtitle-2 {{difficultyText[difficulty]}}
-                    v-col(xs="9" sm="10")
+                    v-col.flex-grow-1
                       v-slider(v-model="difficulty" min="0" max="3" ticks="always" tick-size="4" step="1")
 
                   v-row
-                    v-col.text-center(xs="3" sm="2")
+                    v-col.text-center.flex-grow-0
                       .headline Truns
                       .subtitle-2 {{turns}}
-                    v-col(xs="9" sm="10")
+                    v-col.flex-grow-1
                       v-slider(v-model="turns" min="5" max="100" step="5")
           v-col(align-center justify-center)
-            v-row
-              v-col(cols="5")
-              v-col(cols="2")
+            v-row.justify-center
+              //- v-col(cols="2")
+              v-col.text-center
                 v-btn.mx-2(raised large color="primary" :disabled="!validNames" @click="beginGame()") Begin Game
-              v-col(cols="5")
 
 
 </template>
@@ -129,6 +130,7 @@ export default Vue.extend({
       setup.turns = this.turns;
       setup.difficulty = this.difficulty;
       this.$store.dispatch("setupGame", setup);
+      this.$store.dispatch("resetScores");
       this.$router.push("/Game");
     },
   },

@@ -5,7 +5,7 @@
                 v-card(raised).text-center
                     v-row.text-center
                         v-col(cols="12")
-                            b.headline {{playerName}}
+                            h2 {{playerName}}
                         v-col(cols="12")
                             .headline(v-html="todRequest") {{todRequest}}
             //- v-spacer
@@ -20,13 +20,15 @@
                         v-btn(raised large color="primary"  @click="getDare()") Dare
             v-col(cols="12")
                 v-row
-                    v-col(cols="3")
-                    v-col(cols="2").text-center
+                    //- v-col(cols="3")
+                    //- v-col(cols="2").text-center
+                    v-col.text-center
                         v-btn(raised large color="primary" :disabled="!canContinue" @click="decline()") Decline
-                    v-col(cols="2")
-                    v-col(cols="2").text-center
+                    //- v-col(cols="2")
+                    //- v-col(cols="2").text-center
+                    v-col.text-center
                         v-btn(raised large color="primary" :disabled="!canContinue" @click="accept()") Accept
-                    v-col(cols="3")
+                    //- v-col(cols="3")
         v-footer.full-width.align-end
 </template>
 <script lang="ts">
@@ -127,7 +129,7 @@ export default Vue.extend({
         this.activeTurn++;
         this.activePlayer = 0;
       }
-      if (this.activeTurn > this.maxTurn) {
+      if (this.activeTurn >= this.maxTurn) {
         this.endGame();
       }
       this.activePlayerData = this.$store.getters.getPlayer(this.activePlayer);
